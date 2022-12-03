@@ -1,11 +1,10 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-// const questions = [];
-inquirer
-  .prompt([
+const questions = [
     {
         type: 'input',
         message: 'What is your GitHub username?',
@@ -39,33 +38,61 @@ inquirer
       {
         type: 'input',
         message: 'What are the contribution guidelines of your application?',
-        name: 'contribution',
+        name: 'contributing',
       },
       {
         type: 'input',
         message: 'What are the test instructions for your application?',
-        name: 'tests',
+        name: 'test',
       },
       {
         type: 'list',
         message: 'What license would you like to use for your application?',
         name: 'license',
-        choices: ['MIT', 'Mozzila Public License'],
+        choices: ['MIT', 'agpl', 'apache', 'no license'],
         default: 'MIT'
       },
 
-  ])
-  .then((response) =>
-    console.log(response)
-  );
+  ]
 
 // TODO: Create a function to write README file
-function writeToFile(./New README/README, data) {
-
-}
+// function writeToFile(filename, data) {}
+const writeFile = content => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./newreadme/genREADME.md', content, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'Your README is ready!'
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    return inquirer.prompt(questions)
+    .then(readmeData => {
+        return readmeData;
+    })
+}
 
 // Function call to initialize app
-init();
+init()
+.then(readmeData => {
+    console.log(readmeData);
+    return generateMarkdown(readmeData);
+})
+.then(pageMD => {
+    return writeFile(pageMD);
+})
+.then(writeFileResponse => {
+    console.log(writeFileResponse.message);
+})
+.catch(err => {
+    console.log(err);
+})
+
