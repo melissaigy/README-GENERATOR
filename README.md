@@ -16,6 +16,7 @@
   Clone this repository to your local machine and install node.js
   ## [Usage](#table-of-contents)
   Once installed, using the terminal, enter 'node index.js' to begin answering the prompts. When compelte, the README will be in the folder labeled 'newereadme'
+  ![Information given is now in a readme file written in markdown.](/workingss.png)
   ## [Contributing](#table-of-contents)
   I am not accepting contributions at this time.
   ## [Tests](#table-of-contents)
