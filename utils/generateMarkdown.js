@@ -57,7 +57,8 @@ function generateMarkdown(data) {
   ${data.instructions}
   ## [Usage](#table-of-contents)
   ${data.usage}
-  
+  ## [Contributing](#table-of-contents)
+  ${data.contributing}
   ## [Tests](#table-of-contents)
   ${data.test}
   ## [Questions](#table-of-contents)
