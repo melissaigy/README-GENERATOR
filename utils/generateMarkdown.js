@@ -50,17 +50,17 @@ function generateMarkdown(data) {
   * [Tests](#tests)
   * [Questions](#questions)
   
-  ## [Description]
+  ## [Description](#table-of-contents)
   ${data.description}
 
-  ## [Installation]
+  ## [Installation](#table-of-contents)
   ${data.instructions}
-  ## [Usage]
+  ## [Usage](#table-of-contents)
   ${data.usage}
   
-  ## [Tests]
+  ## [Tests](#table-of-contents)
   ${data.test}
-  ## [Questions]
+  ## [Questions](#table-of-contents)
   Please contact me using the following links:
   [GitHub](https://github.com/${data.username})
   [Email: ${data.email}](mailto:${data.email})
