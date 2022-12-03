@@ -60,7 +60,7 @@ inquirer
   );
 
 // TODO: Create a function to write README file
-function writeToFile(Develop/New README/README, data) {
+function writeToFile(./New README/README, data) {
 
 }
 
